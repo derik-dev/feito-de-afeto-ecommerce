@@ -1,0 +1,118 @@
+/* Página do produto: layout simples (referência: grande marketplace), com as cores do Feito de Afeto.
+   Fundo claro, cards brancos, pouca decoração. Tudo com prefixo .pp para não mexer nas outras páginas. */
+body.pagina-produto { background: #f3f1f3 !important; }
+.pp { padding-bottom: 40px; }
+.pp-card { background: #fff; border: 1px solid #e9e4e8; border-radius: 14px; }
+.pp h1, .pp h2 { color: #15253e; }
+
+/* ── Topo: fotos | informações | compra ── */
+.pp-top { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) 320px; gap: 32px; padding: 24px; align-items: start; }
+.pp-gal { min-width: 0; }
+.pp-gal .gal { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; }
+.pp-gal .gal.gal--single { grid-template-columns: minmax(0, 1fr); }
+.pp-gal .gal-thumbs { gap: 8px; }
+.pp-gal .gal-thumb { width: 56px; height: 70px; border: 1px solid #ddd6db; border-radius: 6px; padding: 2px; background: #fff; }
+.pp-gal .gal-thumb[aria-current='true'] { border: 2px solid #eb0c59; padding: 1px; }
+.pp-gal .gal-thumb img { border-radius: 4px; }
+.pp-gal .gal-main { transform: none; border: 0; border-radius: 8px; box-shadow: none; background: #fff; aspect-ratio: 4 / 5; }
+.pp-gal .gal-main:hover { transform: none; }
+.pp-gal .gal-slide img { object-fit: contain; background: #fff; }
+.pp-info { min-width: 0; }
+.pp-linha { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pp-cond { margin: 0; font-size: 13px; color: #7a6f77; }
+.pp .pd-fav { position: static; width: 40px; height: 40px; flex: none; background: #fff; border: 1px solid #e9e4e8; box-shadow: none; }
+.pp-selo { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 4px; background: #eb0c59; color: #fff; font-size: 12px; font-weight: 600; }
+.pp-selo--novo { background: #1d7a46; }
+.pp-info h1 { margin: 10px 0 0; font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: 0; }
+.pp-nota { margin-top: 8px; font-size: 14px; color: #5b5159; }
+.pp-nota .pd-rating-link { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: inherit; }
+.pp-novo-txt { color: #7a6f77; }
+.pp-preco { margin-top: 16px; }
+.pp-old { margin: 0; font-size: 15px; color: #8b8189; }
+.pp-valor { margin: 2px 0 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.pp-valor strong { font-size: 34px; font-weight: 500; color: #15253e; letter-spacing: -.5px; }
+.pp-off { color: #eb0c59; font-size: 14px; font-weight: 600; }
+.pp-pag { margin: 4px 0 0; font-size: 14px; color: #5b5159; }
+.pp-h { margin: 22px 0 8px; font-size: 16px; font-weight: 600; }
+.pp-lista { margin: 0; padding-left: 20px; color: #4a4048; font-size: 15px; line-height: 1.6; }
+.pp-link { display: inline-block; margin-top: 10px; color: #c70a4a; font-size: 14px; text-decoration: none; }
+.pp-link:hover { text-decoration: underline; }
+
+/* Caixa de compra */
+.pp-box { align-self: start; position: sticky; top: 16px; }
+.pp-box .bb { border: 1px solid #e0d9de; border-radius: 12px; padding: 20px; background: #fff; box-shadow: none; position: static; }
+.pp-box .bb-economia, .pp-box .bb-old, .pp-box .bb-price, .pp-box .bb-inst { display: none; } /* o preço já está ao lado */
+.pp-box .bb-info { margin: 0 0 14px; font-size: 14px; }
+.pp-box .bb-actions { display: grid; gap: 10px; }
+.pp-box .bb .button { min-height: 48px; border-radius: 10px; font-weight: 600; font-size: 15px; }
+.pp-box .bb .button-primary { background: #eb0c59; border-color: #eb0c59; color: #fff; }
+.pp-box .bb .bb-secondary { background: #ffe9f1; border: 1px solid #ffe9f1; color: #c70a4a; }
+.pp-box .bb-trust { margin-top: 14px; font-size: 13px; color: #5b5159; }
+.pp-box .bb-share { margin-top: 10px; color: #c70a4a; background: none; border: 0; font-size: 13px; }
+
+/* ── Corpo: seções + coluna lateral ── */
+.pp-corpo { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; margin-top: 16px; align-items: start; }
+.pp-main { padding: 6px 32px; }
+.pp-sec { padding: 28px 0; border-top: 1px solid #eee8ec; }
+.pp-sec:first-child { border-top: 0; }
+.pp-sec h2, .pp-bloco h2 { margin: 0 0 16px; font-size: 20px; font-weight: 600; }
+.pp-sec h2 em, .pp .rv h2 em { font-style: normal; color: inherit; font-weight: inherit; }
+.pp-tabela { width: 100%; border-collapse: collapse; font-size: 15px; }
+.pp-tabela th, .pp-tabela td { padding: 12px 16px; text-align: left; vertical-align: top; }
+.pp-tabela th { width: 38%; font-weight: 600; color: #15253e; }
+.pp-tabela tr:nth-child(odd) { background: #f3f1f3; }
+.pp-texto { margin: 0; color: #5b5159; font-size: 16px; line-height: 1.7; }
+.pp .pd-tags { margin-top: 14px; }
+.pp-passos { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: p; }
+.pp-passos li { display: grid; gap: 2px; padding-left: 40px; position: relative; counter-increment: p; color: #5b5159; }
+.pp-passos li::before { content: counter(p); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: #ffe9f1; color: #c70a4a; font-weight: 600; display: grid; place-items: center; font-size: 14px; }
+.pp-passos b { color: #15253e; }
+.pp .rv { margin: 0; padding: 0; }
+.pp .rv h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+
+/* Coluna lateral */
+.pp-lado { display: grid; gap: 16px; }
+.pp-bloco { padding: 22px; }
+.pp-bloco h2 { font-size: 18px; margin-bottom: 14px; }
+.pp-pagto, .pp-seguro, .pp-rel { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.pp-pagto li { display: grid; gap: 2px; font-size: 14px; color: #5b5159; }
+.pp-pagto b { color: #15253e; font-size: 15px; }
+.pp-seguro li { display: flex; gap: 10px; font-size: 14px; color: #5b5159; }
+.pp-seguro .icon { width: 20px; height: 20px; flex: none; color: #1d7a46; }
+.pp-rel a { display: flex; gap: 12px; text-decoration: none; color: inherit; }
+.pp-rel img { width: 56px; height: 70px; object-fit: cover; border-radius: 6px; flex: none; background: #f3f1f3; }
+.pp-rel span { display: grid; gap: 4px; align-content: start; font-size: 14px; min-width: 0; }
+.pp-rel b { font-weight: 500; line-height: 1.3; color: #15253e; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pp-rel strong { font-size: 16px; color: #15253e; }
+.pp-rel a:hover b { color: #c70a4a; }
+.pp-rel-car { margin-top: 24px; }
+.pp-rel-car .car-head h2 { font-size: 22px; font-weight: 600; color: #15253e; }
+.pp-rel-car .car-head h2 em { font-style: normal; color: inherit; }
+
+/* ── Tablet e celular ── */
+@media (max-width: 1100px) {
+  .pp-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .pp-box { grid-column: 1 / -1; position: static; }
+  .pp-corpo { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .pp-top { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 20px; }
+  .pp-gal .gal { grid-template-columns: minmax(0, 1fr); }
+  .pp-info h1 { font-size: 20px; }
+  .pp-valor strong { font-size: 30px; }
+  .pp-main { padding: 2px 18px; }
+  .pp-sec { padding: 22px 0; }
+  .pp-tabela th, .pp-tabela td { padding: 10px 12px; font-size: 14px; }
+  .pp-tabela th { width: 42%; }
+  .pp-bloco { padding: 18px; }
+}
+
+/* Acabamento: neutraliza estilos antigos que ainda valiam para estes blocos */
+.pp #como-funciona { background: transparent; }
+.pp h1, .pp h2, .pp .car-head h2 { letter-spacing: 0; }
+.pp .pd-chip { background: #f3f1f3; color: #5b5159; border-radius: 999px; padding: 4px 12px; font-weight: 500; }
+.pp a.pd-chip:hover { background: #ffe9f1; color: #c70a4a; }
+.pp .pd-incl { gap: 10px 24px; }
+.pp-sec::before, .pp-sec h2::before { content: none !important; }
+.pp-box .bb-trust { border-top: 1px solid #eee8ec; padding-top: 16px; margin-top: 16px; }
+.pp-box .bb-trust::before, .pp-box .bb-trust::after { content: none; }

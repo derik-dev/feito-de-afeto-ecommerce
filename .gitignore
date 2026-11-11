@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# ── Segredos: nunca vão para o Git ──
+# Credenciais do banco (o arquivo real fica só no servidor; o modelo está em docs/*.exemplo.php)
+.env
+.env.*
+feito-de-afeto-config.php
+*-config.php
+config.local.php
+api/config*.php
+api/_privado/
+
+# Arquivos de teste e anotações que não fazem parte do site
+artifacts/
+resposta do claude.md

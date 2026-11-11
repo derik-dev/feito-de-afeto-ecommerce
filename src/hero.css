@@ -1,0 +1,87 @@
+/* A home segue a proporção 3:1 das artes; as categorias usam a variação compacta abaixo. */
+.hv { position: relative; background: #fff9fb; touch-action: pan-y; }
+.hv-track { display: grid; overflow: hidden; }
+.hv-slide { --hv-ink: #294b39; --hv-accent: #365b44; position: relative; grid-area: 1 / 1; aspect-ratio: 3 / 1; min-width: 0; overflow: hidden; background: #fbeee8; color: var(--hv-ink); opacity: 0; visibility: hidden; transition: opacity .65s ease, visibility .65s; }
+.hv-slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
+.hv-slide--agendamento { --hv-ink: #263348; --hv-accent: #263348; background: #f6f6f6; }
+.hv-slide--religiosas { --hv-ink: #3d4353; --hv-accent: #766032; background: #f5ecdf; }
+.hv-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.hv-copy { position: absolute; inset: 0 auto 0 14%; width: 29%; padding-block: 1.4vw; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.hv-slide--religiosas .hv-copy { left: 20%; }
+.hv-eyebrow { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border: 1px solid #b78b4b55; border-radius: 30px; background: #fffaf2ab; font-size: clamp(8px, .8vw, 12px); line-height: 1.4; font-weight: 600; letter-spacing: 1.6px; margin-bottom: 12px; white-space: nowrap; }
+.hv-eyebrow::before { content: '✦'; color: #a77d3f; font-size: 11px; }
+.hv-title { font-family: 'Manrope', 'Poppins', sans-serif; font-size: clamp(30px, 4.3vw, 66px); font-weight: 600; letter-spacing: -1.8px; line-height: 1.04; text-shadow: 0 1px #fff8; }
+.hv-title > span, .hv-title > em { display: block; }
+.hv-title em { color: inherit; font-weight: inherit; font-style: normal; }
+.hv-slide--jardim .hv-title { font-family: 'Allura', 'Brush Script MT', cursive; font-weight: 400; font-size: clamp(52px, 7.2vw, 116px); line-height: .86; letter-spacing: -1px; }
+.hv-slide--agendamento .hv-title em { color: #826032; }
+.hv-slide--religiosas .hv-title { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(44px, 5.8vw, 94px); line-height: .96; letter-spacing: -.7px; }
+.hv-slide--religiosas .hv-title em { font-style: italic; color: #936b2d; }
+.hv-flourish { color: #ad8246; width: clamp(90px, 10vw, 145px); height: 18px; margin-top: 8px; flex: none; }
+.hv-flourish svg { display: block; width: 100%; height: 100%; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.hv-sub { font-size: clamp(12px, 1.15vw, 18px); line-height: 1.5; margin-top: 12px; max-width: 350px; }
+.hv-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 18px; }
+.hv .hv-cta { min-height: 48px; padding: 12px 22px; border: 1px solid var(--hv-accent); border-radius: 6px; background: var(--hv-accent); color: #fff; font-size: 14px; font-weight: 500; box-shadow: 0 5px 16px #3b3b3518; animation: none; }
+.hv-cta .icon { width: 18px; height: 18px; }
+.hv-slide--jardim .hv-cta { border-radius: 30px; }
+.hv-slide--religiosas .hv-cta { border-radius: 0; }
+.hv-link { color: var(--hv-ink); font-size: 13px; padding: 6px 0; text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 701px) and (max-width: 1000px) {
+  .hv-copy { left: 12%; width: 32%; padding-block: 6px; }
+  .hv-slide--religiosas .hv-copy { left: 18%; }
+  .hv-eyebrow { padding: 4px 8px; letter-spacing: .8px; margin-bottom: 6px; }
+  .hv-flourish { height: 10px; margin-top: 4px; }
+  .hv-sub { margin-top: 8px; line-height: 1.4; }
+  .hv-actions { gap: 6px 10px; margin-top: 10px; }
+  .hv .hv-cta { min-height: 34px; padding: 8px 12px; font-size: 11px; }
+  .hv-link { font-size: 11px; }
+}
+@media (max-width: 700px) {
+  .hv-copy { left: 11%; width: 33%; padding-block: 4px; }
+  .hv-slide--religiosas .hv-copy { left: 14%; }
+  .hv-eyebrow { padding: 3px 7px; font-size: 8px; letter-spacing: .5px; margin-bottom: 6px; }
+  .hv-eyebrow::before { font-size: 9px; }
+  .hv-title { font-size: clamp(19px, 4.3vw, 30px); letter-spacing: -.6px; }
+  .hv-slide--jardim .hv-title { font-size: clamp(30px, 8.5vw, 56px); line-height: .85; letter-spacing: -.3px; }
+  .hv-slide--religiosas .hv-title { font-size: clamp(26px, 5.4vw, 40px); line-height: .94; }
+  .hv-flourish { height: 10px; width: 90px; margin-top: 4px; }
+  .hv-sub, .hv-link { display: none; }
+  .hv-actions { margin-top: 8px; }
+  .hv .hv-cta { min-height: 28px; padding: 6px 10px; font-size: 11px; gap: 6px; }
+  .hv-cta .icon { width: 12px; height: 12px; }
+}
+@media (max-width: 540px) {
+  .hv-eyebrow, .hv-flourish { display: none; }
+}
+@media (max-width: 420px) {
+  .hv-actions { margin-top: 6px; }
+  .hv .hv-cta { min-height: 26px; font-size: 10px; padding: 5px 8px; }
+}
+/* Nas categorias, a arte é contida à direita: reduz a altura sem cortar as agendas. */
+.hv--categoria .hv-slide { aspect-ratio: 5 / 1; }
+.hv--categoria .hv-img { object-position: right center; -webkit-mask-image: linear-gradient(90deg, transparent 44%, #000 64%); mask-image: linear-gradient(90deg, transparent 44%, #000 64%); }
+.hv--categoria .hv-copy { width: 40%; padding-block: 12px; }
+.hv--categoria .hv-title { font-size: clamp(28px, 3.3vw, 58px); }
+.hv--categoria .hv-title > span, .hv--categoria .hv-title > em { display: inline; }
+.hv--categoria .hv-slide--jardim .hv-title { font-size: clamp(40px, 5.5vw, 92px); line-height: .95; }
+.hv--categoria .hv-slide--religiosas .hv-title { font-size: clamp(36px, 4.2vw, 76px); }
+.hv--categoria .hv-eyebrow { margin-bottom: 8px; }
+.hv--categoria .hv-flourish { height: 14px; margin-top: 4px; }
+.hv--categoria .hv-sub { font-size: clamp(12px, 1vw, 16px); margin-top: 8px; }
+@media (min-width: 701px) and (max-width: 1000px) {
+  .hv--categoria .hv-copy { width: 44%; padding-block: 6px; }
+  .hv--categoria .hv-eyebrow { margin-bottom: 6px; }
+  .hv--categoria .hv-flourish { height: 10px; }
+  .hv--categoria .hv-sub { margin-top: 6px; }
+}
+@media (max-width: 700px) {
+  .hv--categoria .hv-copy { width: 44%; padding-block: 4px; }
+  .hv--categoria .hv-title { font-size: clamp(18px, 4vw, 28px); }
+  .hv--categoria .hv-slide--jardim .hv-title { font-size: clamp(26px, 7vw, 44px); }
+  .hv--categoria .hv-slide--religiosas .hv-title { font-size: clamp(22px, 5.4vw, 38px); }
+  .hv--categoria .hv-eyebrow { margin-bottom: 6px; }
+  .hv--categoria .hv-flourish { height: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hv-slide { transition: none; }
+}

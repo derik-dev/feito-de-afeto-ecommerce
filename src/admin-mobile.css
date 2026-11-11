@@ -1,0 +1,99 @@
+/* Painel no celular: cartões legíveis, áreas de toque e barras sem sobreposição. */
+.stats:has(> :nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.stats:has(> :nth-child(3):last-child) .stat { flex-direction: column; align-items: flex-start; }
+.stats > .stat > div { min-width: 0; }
+.stat strong { overflow-wrap: anywhere; }
+@media (max-width: 1250px) {
+  .ferramentas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ferramentas .busca, .ferramentas .segmento { grid-column: 1 / -1; }
+  .ferramentas .segmento { display: flex; }
+  .ferramentas .segmento button { flex: 1; }
+}
+@media (max-width: 1100px) {
+  .principal, #conteudo, .duas-colunas > *, .form-prod > *, .bloco, .stat, .grade-prod > *, .grade-cats > * { min-width: 0; }
+  .duas, .ferramentas { min-width: 0; }
+  input, select, textarea { min-width: 0; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats:has(> :nth-child(3):last-child) { grid-template-columns: minmax(0, 1fr); }
+  .duas-colunas, .form-prod { grid-template-columns: minmax(0, 1fr); }
+  .form-lado { position: static; }
+  .linha-valor input { width: 0; min-width: 0; }
+  .linha-valor input { border: 1.5px solid #e4d3dc; border-radius: 12px; padding: 12px 14px; font-size: 16px; }
+}
+@media (max-width: 900px) {
+  img { max-width: 100%; }
+  .barra-esq { flex: 1; }
+  .barra-dir { flex: none; gap: 8px; }
+  .barra .avatar { width: 44px; height: 44px; flex: none; text-decoration: none; }
+  .barra h1 { font-size: 18px; }
+  .ib, .ib.peq, .voltar { min-width: 44px; width: 44px; height: 44px; }
+  .botao, .botao.peq, .segmento button, .chave { min-height: 44px; }
+  .botao { white-space: normal; text-align: center; padding-block: 10px; line-height: 1.3; }
+  .abas { padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
+  .abas a { min-height: 48px; min-width: 0; font-size: 10px; }
+  #conteudo { padding-bottom: calc(108px + env(safe-area-inset-bottom)); }
+  .bloco-topo { flex-wrap: wrap; align-items: center; }
+  .boas-vindas > div { min-width: 0; }
+  .boas-vindas h2, .perfil, .dica-caixa, .lista-fin small { overflow-wrap: anywhere; }
+  .recentes a { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 8px 12px; }
+  .recentes a > div { min-width: 0; }
+  .recentes .dir { grid-column: 2; margin: 0; text-align: left; }
+  .recentes img { grid-row: span 2; }
+  .form-lado { position: static; }
+  .barra-fixa { gap: 8px; padding-inline: 12px; }
+  .barra-fixa .botao { padding-inline: 14px; }
+  .modal { max-height: calc(100dvh - 20px); overflow-y: auto; overscroll-behavior: contain; }
+  .modal-botoes .botao { min-height: 46px; }
+  .linha-valor input { width: 0; min-width: 0; }
+  .lista-fin li { flex-wrap: wrap; }
+  .lista-fin li > div { flex: 1 1 160px; min-width: 0; }
+  .lista-fin li > strong { flex: none; }
+}
+@media (max-width: 560px) {
+  .stats { gap: 12px; }
+  .stat { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+  .stat > div { width: 100%; min-width: 0; }
+  .stat strong { font-size: 26px; overflow-wrap: anywhere; }
+  .stat div span { font-size: 13px; }
+  .stat small { font-size: 12px; }
+  .bloco { padding: 18px 16px; }
+  .boas-vindas { padding: 20px; }
+  .boas-vindas h2 { font-size: 23px; line-height: 1.3; }
+  .grade-prod { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .prod { display: grid; grid-template-columns: clamp(92px, 26vw, 116px) minmax(0, 1fr); border-radius: 18px; }
+  .prod-img { height: 100%; aspect-ratio: auto; }
+  .prod-img img { object-fit: contain; }
+  .selo-destaque { max-width: calc(100% - 8px); top: 5px; left: 4px; padding: 3px 6px; font-size: 10px; }
+  .selo-destaque .ic { display: none; }
+  .selo-sempdf { left: 4px; bottom: 5px; font-size: 10px; padding: 3px 6px; }
+  .prod-corpo { min-width: 0; padding: 12px 10px; }
+  .prod-corpo h3 { font-size: 15px; -webkit-line-clamp: 3; line-clamp: 3; min-height: 0; }
+  .prod-cat { font-size: 12px; overflow-wrap: anywhere; }
+  .prod-preco b { font-size: 22px; }
+  .prod-preco { flex-wrap: wrap; }
+  .prod-rodape { display: block; }
+  .prod-rodape .icones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 2px 0 0; }
+  .prod-rodape .ib { min-width: 0; width: 100%; min-height: 44px; }
+  .ferramentas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .ferramentas select { padding-left: 10px; padding-right: 30px; }
+  .segmento button { font-size: 14px; padding-inline: 10px; }
+  .topo-tela .botao { max-width: 100%; }
+  .duas { grid-template-columns: minmax(0, 1fr); }
+  .cat-cartao header { padding: 16px; gap: 10px; flex-wrap: wrap; }
+  .cat-cartao header > div:not(.icones) { flex: 1; min-width: 0; }
+  .cat-cartao header .icones { margin: 0 0 0 auto; }
+  .cat-cartao h3 { font-size: 18px; overflow-wrap: anywhere; }
+  .nichos { padding: 16px; }
+  .nichos li { flex-wrap: wrap; gap: 6px; }
+  .nicho-nome { flex: 1 1 140px; min-width: 0; overflow-wrap: anywhere; }
+  .nicho-n { margin-left: 0; }
+  .nichos .icones { margin-left: auto; }
+  .fotos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .foto .ib { min-width: 36px; width: 36px; height: 40px; }
+  .pdf-card { padding: 12px; gap: 10px; flex-wrap: wrap; }
+  .pdf-card > div { flex-basis: 130px; }
+  .entrada-form { padding-inline: 14px; }
+  .entrada-cartao { padding: 24px 20px; }
+  .modal { padding: 24px 18px calc(24px + env(safe-area-inset-bottom)); }
+  .modal-botoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

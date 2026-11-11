@@ -1,0 +1,24 @@
+# Ninguém abre conexao.php pelo navegador; só os outros arquivos PHP desta pasta o incluem.
+# (O próprio conexao.php também se bloqueia por dentro: são duas travas.)
+<Files "conexao.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</Files>
+
+# Bloqueados no navegador (valem também para as subpastas, como admin/):
+#  - config.php e variações (senha do banco), .env e cópias/backups (.bak, .old...)
+#  - arquivos que começam com "_" (_produtos.php, _comum.php): são só peças usadas por outros arquivos
+<FilesMatch "^(config.*|_.*|\.env.*|.*\.(bak|old|orig|swp|save))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>

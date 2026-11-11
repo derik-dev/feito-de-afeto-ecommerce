@@ -1,0 +1,13 @@
+PASTA DOS BANNERS DOS CATÁLOGOS
+================================
+Coloque aqui as imagens dos banners (ex.: religiosas.webp, jardim-encantado.webp).
+
+Depois, abra  src/data/banners.js  e escreva o nome do arquivo no campo "imagem"
+da categoria correspondente. Exemplo:
+
+  Religiosas: { imagem: 'religiosas.webp', ... }
+
+Tamanhos recomendados:
+  - Computador: 1320 x 320 px
+  - Celular (opcional, campo "imagemMobile"): 750 x 420 px
+Formato .webp ou .jpg, até uns 200 KB.

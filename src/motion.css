@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOVIMENTO DO SITE (efeitos leves). Lógica em src/motion.js.
+   Tudo fica dentro de "no-preference": quem pediu menos movimento não vê nada disso.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: no-preference) {
+  :root { --mv-ease: cubic-bezier(.2, .7, .2, 1); }
+
+  /* Só ficam: o aviso no contador do carrinho e a faixa de palavras-chave rolando.
+     Saíram: surgir ao rolar, cascata dos cards, zoom da foto, pulso do botão, pulinho do coração. */
+  .cart-count.bump { animation: mv-bump .5s var(--mv-ease); }
+  .kw-track { animation: mv-marquee 36s linear infinite; }
+  .kw-band:hover .kw-track { animation-play-state: paused; }
+
+  @keyframes mv-bump { 0% { transform: scale(1); } 40% { transform: scale(1.5); } 100% { transform: scale(1); } }
+  @keyframes mv-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+}
+
+/* Faixa de palavras-chave em modo rolagem (a regra de movimento acima só liga a animação). */
+.kw-band { overflow: hidden; }
+.kw-track { display: flex; width: max-content; }
+.kw-track ul { display: flex; flex-wrap: nowrap; flex-shrink: 0; padding: 14px 0; margin: 0; list-style: none; }
+.kw-track li { display: flex; align-items: center; white-space: nowrap; font-size: 15px; font-weight: 600; letter-spacing: .3px; }
+.kw-track li::after { content: '♡'; color: #ff98bc; margin: 0 22px; font-size: 14px; }
+@media (prefers-reduced-motion: reduce) {
+  /* Sem movimento: volta a faixa centralizada, mostrando só a primeira lista */
+  .kw-track { width: 100%; justify-content: center; }
+  .kw-track ul[aria-hidden] { display: none; }
+  .kw-track ul:first-child li:last-child::after { display: none; }
+}
